@@ -8,5 +8,36 @@
 
 Video database is a video database management site developed with Symfony
 
+
+## Environnement de développement
+
+### Prérequis
+
+* PHP 7.4
+* Composer
+* Symfony CLI
+* Docker
+* Docker-composer
+
+Vous pouvez vérifier les prérequis (sauf Docker et Docker-compose) avec la commande suivante:
+
+```bash
+symfony check:requirements
+```
+
+### Lancer l'environnement de développement
+
+```bash
+docker-composer up -d
+symfony serve -d
+```
+
+## Lancer des tests
+
+```bash
+php bin/phpunit --testdox
+```
+
+
 ## License
 MIT
