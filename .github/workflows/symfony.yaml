@@ -1,0 +1,36 @@
+
+name: phpunit + phpcs + phpstan
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/a²ctions/checkout (official)
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+      #        uses: php-actions/composer@v6
+
+      # PHPUnit
+      - name: PHPUnit
+        uses: chindit/actions-phpunit-symfony@master
+
+      # PHPStan
+      - name: PHPStan
+        uses: chindit/actions-phpstan@master
+        with:
+          # Arguments to add to PHPStan
+          arguments: 'src/ --level=3'
+
+      # PHPCS
+      - name: PHP Code Style (phpcs)
+        uses: chindit/actions-phpcs@master
+        with:
+          # Folder to check code style
+          dir: src/
