@@ -1,0 +1,121 @@
+//$purple: #b241f9;
+//$pink: #f941f6;
+//$red: #f94144;
+//$orange: #f3722c;
+//$orange-light: #f8961e;
+//$yellow: #f9c74f;
+//$green: #90be6d;
+//$turquoise: #43aa8b;
+//$light-blue: #8dc2f1;
+//$blue: #2385dc;
+//$dark-blue: #577590;
+//$gray: #bbb;
+//$light-gray: #eee;
+//$light :#fafafa;
+//$white: #fff;
+//$dark: #222;
+//$black: #000;
+
+//@for $i from 1 through 10 {
+//    $red-#{$i}: lighten($red, $i * 5);
+//}
+
+$purple: #A78BFA;
+$light-purple: lighten($purple, 10);
+$dark-purple: darken($purple, 10);
+
+$pink: #F472B6;
+$light-pink: lighten($pink, 10);
+$dark-pink: darken($pink, 10);
+
+$red: #9e2727;
+$light-red: lighten($red, 10);
+$dark-red: darken($red, 10);
+
+$orange: #f3722c;
+$light-orange: lighten($orange, 10);
+$dark-orange: darken($orange, 10);
+
+$yellow: #FBBF24;
+$light-yellow: lighten($yellow, 10);
+$dark-yellow: darken($yellow, 10);
+
+$green: #379037;
+$light-green: lighten($green, 10);
+$dark-green: darken($green, 10);
+
+$blue: #245590;
+$light-blue: lighten($blue, 10);
+$dark-blue: darken($blue, 10);
+
+$gray: #bbb;
+$light-gray: lighten($gray, 10);
+$dark-gray: darken($gray, 10);
+
+
+$light: #f2f2f2;
+$white: #fff;
+$dark: #222;
+$black: #000;
+
+$colors: (
+        "light-purple": $light-purple,
+        "purple": $purple,
+        "dark-purple": $dark-purple,
+        "light-pink": $light-pink,
+        "pink": $pink,
+        "dark-pink": $dark-pink,
+        "light-red": $light-red,
+        "red": $red,
+        "dark-red": $dark-red,
+        "light-orange": $light-orange,
+        "orange": $orange,
+        "dark-orange": $dark-orange,
+        "light-yellow": $light-yellow,
+        "yellow": $yellow,
+        "dark-yellow": $dark-yellow,
+        "light-green": $light-green,
+        "green": $green,
+        "dark-green": $dark-green,
+        "light-blue": $light-blue,
+        "blue": $blue,
+        "dark-blue": $dark-blue,
+        "light-gray": $light-gray,
+        "gray": $gray,
+        "dark-gray": $dark-gray,
+        "dark": $dark,
+        "light": $light,
+        "white": $white,
+);
+
+$background-color-main: #f7f9fb;
+$color-main: $black;
+
+$background-color-header: $background-color-main;
+$color-header: $blue;
+$border-color-header: $light-gray;
+
+$background-color-footer: $white;
+$color-footer: $blue;
+$border-color-footer: $light-gray;
+
+$color-link: $blue;
+$color-link-hover: $green;
+
+$border: 1px solid $light-gray;
+$border-table: 1px solid $gray;
+$border-focus: 1px solid $blue;
+
+$font-size-desktop: 16px;
+$font-size-mobile: 14px;
+
+$border-radius: .25rem;
+$box-shadow : 0 0 .25rem $light-gray;
+//$box-shadow : .125rem .125rem .25rem $light-gray;
+
+$breakpoints: (
+        mobile: 640px,
+        tablet: 768px,
+        desktop: 1024px,
+        xxl: 1600px
+);

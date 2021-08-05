@@ -1,0 +1,178 @@
+@mixin colorize-button($color) {
+    border: 1px solid darken($color, 40);
+    background: darken($color, 20);
+
+    &:hover {
+        background: $color;
+    }
+}
+
+// Striped grid table rows
+@mixin striped($cols-number, $row-color1: $light, $row-color2: $white, $header-color: $light-gray) {
+    > div {
+        background: $row-color1;
+    }
+    @for $i from 1 through $cols-number {
+        > div:nth-child(#{(2 * $cols-number)}n + #{$i}) {
+            background: $row-color2;
+        }
+        > div:nth-child( #{$i}) {
+            //background: $header-color;
+            //color: invert($header-color);
+            background: $row-color2;
+            border-bottom: 1px solid $black;
+            z-index: 10;
+            position: sticky;
+            top: 0;
+        }
+    }
+}
+
+
+//. Center a block element without worry top or bottom margin
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+//. ::before and ::after use
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+//. Centering a block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//. Horizontal & Vertical centering
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//. Vertical centering
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin center-vertically {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%),;
+}
+
+//. Background gradient
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == 'vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+//. Arrow
+@mixin arrow($color, $direction, $size: 6px, $position: absolute, $round: false) {
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5 );
+    } @else if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5 );
+    } @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    } @else if $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+
+//. Media query
+@mixin screen($size) {
+    $mobile: "(max-width: 640px)";
+    $tablet: "(min-width: 768px)";
+    $desktop: "(min-width: 1024px)";
+    $xxl: "(min-width: 1600px)";
+    @if $size == mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    } @else if $size == tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    } @else if $size == desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    } @else if $size == xxl {
+        @media only screen and #{$xxl} {
+            @content;
+        }
+    } @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+
+//. Flex
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+}
+
+@mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+}
