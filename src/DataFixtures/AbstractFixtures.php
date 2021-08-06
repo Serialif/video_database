@@ -18,9 +18,17 @@ abstract class AbstractFixtures extends Fixture
      */
     protected ObjectManager $manager;
 
+    /**
+     * @param ObjectManager $manager
+     * @return mixed
+     */
+    abstract protected function loadData(ObjectManager $manager);
+
     public function load(ObjectManager $manager)
     {
         $this->faker = Faker\Factory::create('fr_FR');
         $this->manager = $manager;
+
+        $this->loadData($manager);
     }
 }

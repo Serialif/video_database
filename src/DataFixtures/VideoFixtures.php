@@ -8,21 +8,22 @@ use Doctrine\Persistence\ObjectManager;
 
 class VideoFixtures extends AbstractFixtures
 {
-    public function load(ObjectManager $manager)
+    public function loadData(ObjectManager $manager)
     {
-        $date = new DateTimeImmutable();
+        for ($i = 0; $i < 20; $i++) {
+            $date = DateTimeImmutable::createFromMutable($this->faker->dateTime());
 
-        $video = new Video();
+            $video = new Video();
 
-        $video->setTitle('title');
-        $video->setDescription('description');
-        $video->setUrl('url');
-        $video->setImage('image');
-        $video->setCreatedAt($date);
-        $video->setUpdatedAt($date);
+            $video->setTitle($this->faker->words(5, true));
+            $video->setDescription($this->faker->paragraph());
+            $video->setUrl($this->faker->url());
+            $video->setImage($this->faker->slug());
+            $video->setCreatedAt($date);
 
+            $manager->persist($video);
+        }
 
-        $manager->persist($video);
         $manager->flush();
     }
 }

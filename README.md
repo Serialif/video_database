@@ -38,6 +38,12 @@ symfony serve -d
 php bin/phpunit --testdox
 ```
 
+## Lancer des tests
+
+```bash
+php bin/phpunit --testdox
+```
+
 
 ## License
 MIT

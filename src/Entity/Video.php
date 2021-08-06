@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\VideoRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=VideoRepository::class)
  * @ORM\Table(name="video_db_video")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Video
 {
@@ -123,5 +125,19 @@ class Video
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function updateTimestamps(): void
+    {
+        $date = new DateTimeImmutable();
+
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($date);
+        }
+        $this->setUpdatedAt($date);
     }
 }
