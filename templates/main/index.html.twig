@@ -4,17 +4,20 @@
 
 {% block body %}
     <h1>Liste des vidéos</h1>
-    {% for video in videos %}
-        <div>
-            <div>
-                <a href="{{ video.url }}"><h2>{{ video.title }}</h2></a>
+    <div class="videos">
+        {% for video in videos %}
+            <div class="video">
+                <div class="img">
+                    <img src="{{ video.image }}" alt="{{ video.title }}">
+                </div>
+                <div>
+                    <a href="{{ video.url }}"><h2>{{ video.title }}</h2></a>
+                </div>
+                <div>
+                    {{ video.description }}
+                </div>
             </div>
-            <div>
-                <img src="{{ video.image }}" alt="{{ video.title }}">
-            </div>
-            <div>
-                {{ video.description }}
-            </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
+
 {% endblock %}
