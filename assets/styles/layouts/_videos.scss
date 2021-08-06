@@ -5,20 +5,29 @@
     align-items: stretch;
 
     .video{
-        max-width: 360px;
+        max-width: 270px;
         padding: 10px;
-        border: 1px solid #88888888;
-        border-radius: .25rem;
+        //border: 1px solid #88888888;
+        //border-radius: .25rem;
         margin: 10px 0;
 
         h2{
-            text-align: center;
-            padding: 10px;
+            text-align: left;
+            //padding: 10px;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
         .img{
-            padding: 10px;
+            //padding: 10px;
             text-align: center;
+            width: 250px;
+            height: auto;
+
+            img{
+                width: 250px;
+                height: 150px;
+            }
         }
     }
 }
