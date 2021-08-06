@@ -1,4 +1,3 @@
-
 name: phpunit + phpcs + phpstan
 on:
   push:
