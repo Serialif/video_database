@@ -1,16 +1,14 @@
-<body style="background-color: #16273b; padding: 20px">
-<div style="border-radius: .25rem; background-color: #5c90cb; padding: 20px; text-align: center">
-    <p><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif-white.png" alt="Serialif"></a>
+<p align="center">
+    <a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif-white.png" alt="Serialif"></a>
+</p>
 
-<hr style="background: #16273b;">
+<hr>
 
-<h1 style="color: #16273b;">Video database</h1>
+<h1 align="center">Video database</h1>
 
-</div>
-<br>
 Video database is a video database management site developed with Symfony
 
-<h2 style="color: #16273b; border-radius: .25rem; background-color: #5c90cb; padding: 10px; margin: 60px 0 0 0; text-align: center">Development environment</h2>
+## Development environment
 
 ### Requires
 
@@ -47,7 +45,7 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:fixtures:load
 ```
 
-<h2 style="color: #16273b; border-radius: .25rem; background-color: #5c90cb; padding: 10px; margin: 60px 0 0 0; text-align: center">Development Tools</h2>
+## Development Tools
 
 ### PHPUnit
 
@@ -79,8 +77,6 @@ Automatically correct coding standard violations:
 php bin/phpcbf
 ```
 
-<h2 style="color: #16273b; border-radius: .25rem; background-color: #5c90cb; padding: 10px; margin: 60px 0 0 0; text-align: center">License</h2>
+## License
 
 MIT
-
-</body>
