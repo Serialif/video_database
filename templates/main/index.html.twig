@@ -3,7 +3,7 @@
 {% block title %}Liste des vidéos{% endblock %}
 
 {% block body %}
-    <h1>Liste des vidéos</h1>
+    <h1>Liste des vidéos ({{ videos.getTotalItemCount }})</h1>
     <div class="videos">
         {% for video in videos %}
             <div class="video">
@@ -20,5 +20,5 @@
             </div>
         {% endfor %}
     </div>
-
+    {{ knp_pagination_render(videos) }}
 {% endblock %}
