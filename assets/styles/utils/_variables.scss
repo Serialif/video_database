@@ -1,25 +1,3 @@
-//$purple: #b241f9;
-//$pink: #f941f6;
-//$red: #f94144;
-//$orange: #f3722c;
-//$orange-light: #f8961e;
-//$yellow: #f9c74f;
-//$green: #90be6d;
-//$turquoise: #43aa8b;
-//$light-blue: #8dc2f1;
-//$blue: #2385dc;
-//$dark-blue: #577590;
-//$gray: #bbb;
-//$light-gray: #eee;
-//$light :#fafafa;
-//$white: #fff;
-//$dark: #222;
-//$black: #000;
-
-//@for $i from 1 through 10 {
-//    $red-#{$i}: lighten($red, $i * 5);
-//}
-
 $purple: #A78BFA;
 $light-purple: lighten($purple, 10);
 $dark-purple: darken($purple, 10);
