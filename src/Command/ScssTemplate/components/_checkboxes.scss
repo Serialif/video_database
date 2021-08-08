@@ -1,0 +1,45 @@
+@use 'sass:math';
+//@import "assets/styles/utils/variables";
+
+$toggle-height: 1.2rem;
+$toggle-space: .2rem;
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    background: $white;
+    border: $border;
+    //border-radius: .25rem;
+    cursor: pointer;
+    display: inline-block;
+    height: $toggle-height;
+    position: relative;
+    transition: .3s;
+    width: $toggle-height;
+
+    &::before {
+        background: $green;
+        //opacity: 0;
+        transform: scale(0);
+        //border-radius: .25rem;
+        content: "";
+        //height: $toggle-height - ($toggle-space * 2);
+        left: $toggle-space;
+        right: $toggle-space;
+        bottom: $toggle-space;
+        position: absolute;
+        top: $toggle-space;
+        transition: .3s;
+        //width: $toggle-height  - ($toggle-space * 2);
+    }
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+    //opacity: 1;
+    transform: scale(1);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+}
