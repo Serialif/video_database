@@ -1,8 +1,14 @@
 @import "utils/variables";
 @import "utils/mixins";
 
-@import "bases/reset";
 @import "bases/typography";
+@import "bases/reset";
+@import "bases/bases";
 
-@import "layouts/videos";
+@import "components/alerts";
+@import "components/buttons";
+@import "components/checkboxes";
+@import "components/toggle_switches";
+
 @import "layouts/pagination";
+@import "layouts/videos";
