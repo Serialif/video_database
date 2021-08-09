@@ -9,7 +9,7 @@ $toggle-space: .2rem;
 }
 
 .toggle-label {
-    background: $white;
+    background: $color-white;
     border: $border;
     //border-radius: .25rem;
     cursor: pointer;
@@ -20,7 +20,7 @@ $toggle-space: .2rem;
     width: $toggle-height;
 
     &::before {
-        background: $green;
+        background: $color-green;
         //opacity: 0;
         transform: scale(0);
         //border-radius: .25rem;

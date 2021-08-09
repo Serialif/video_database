@@ -1,0 +1,10 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: $color-dark;
+    color: $color-white;
+    font-size: .9rem;
+    border-top: 2px solid $color-youtube;
+    margin-top: auto;
+}

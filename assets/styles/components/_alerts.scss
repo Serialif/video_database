@@ -1,6 +1,6 @@
 .alert {
     //border-radius: $border-radius;
-    color: #fff;
+    color: $color-white;
     padding: 1rem;
     text-align: center;
     width: 100%;
@@ -23,22 +23,22 @@
     }
 
     &.alert-success {
-        background-color: lighten($green, 50);
-        //border: 1px solid $green;
-        color:  darken($green, 20);
+        background-color: lighten($color-green, 50);
+        //border: 1px solid $color-green;
+        color:  darken($color-green, 20);
 
         &:after {
-            color:  darken($green, 20);
+            color:  darken($color-green, 20);
         }
     }
 
     &.alert-danger {
-        background-color: lighten($red, 50);
-        //border: 1px solid $red;
-        color:  darken($red, 20);
+        background-color: lighten($color-red, 50);
+        //border: 1px solid $color-red;
+        color:  darken($color-red, 20);
 
         &:after {
-            color:  darken($red, 20);
+            color:  darken($color-red, 20);
         }
     }
 }

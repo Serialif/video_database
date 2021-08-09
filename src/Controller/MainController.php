@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="main")
+     * @Route("/", name="app_home")
      */
     public function index(Request $request, VideoRepository $videoRepository, PaginatorInterface $paginator): Response
     {

@@ -12,3 +12,21 @@ body {
     flex-direction: column;
     height: 100%;
 }
+
+a, a:visited {
+    color: transparentize($color-white, .2);
+    text-decoration: none;
+    transition: .3s;
+    font-weight: 600;
+
+    &:hover {
+        color: $color-white;
+    }
+}
+
+//. -------------------------- MEDIA SCREEN ---------------------------
+@include screen(tablet) {
+    html {
+        font-size: $font-size-desktop;
+    }
+}
