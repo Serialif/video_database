@@ -3,22 +3,24 @@
 {% block title %}Liste des vidéos{% endblock %}
 
 {% block body %}
-    <h1>Liste des vidéos ({{ videos.getTotalItemCount }})</h1>
-    <div class="videos">
-        {% for video in videos %}
-            <div class="video">
-                <div class="img">
+    <div class="videos-container">
+        <h1>Liste des vidéos ({{ videos.getTotalItemCount }})</h1>
+        <div class="videos">
+            {% for video in videos %}
+                <div class="video">
+                    <div class="img">
 
-                    <a href="{{ video.url }}"><img src="{{ video.image }}" alt="{{ video.title }}"></a>
+                        <a href="{{ video.url }}"><img src="{{ video.image }}" alt="{{ video.title }}"></a>
+                    </div>
+                    <div>
+                        <h2>{{ video.title }}</h2>
+                    </div>
+                    {# <div> #}
+                    {# {{ excerpt(video.description) }} #}
+                    {# </div> #}
                 </div>
-                <div>
-                    <h2>{{ video.title }}</h2>
-                </div>
-{#                <div>#}
-{#                    {{ excerpt(video.description) }}#}
-{#                </div>#}
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+        {{ knp_pagination_render(videos) }}
     </div>
-    {{ knp_pagination_render(videos) }}
 {% endblock %}

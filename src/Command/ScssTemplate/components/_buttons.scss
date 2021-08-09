@@ -3,7 +3,7 @@ body {
         .btn-#{$name} {
             border: $border;
             border-radius: $border-radius;
-            color: #fff;
+            color: $color-white;
             cursor: pointer;
             display: inline-block;
             font-size: .9rem;
@@ -19,7 +19,7 @@ body {
             }
 
             &:hover {
-                color: #fff;
+                color: $color-white;
                 text-decoration: none;
                 background-color: darken($color, 5);
                 @if $name == "white" {
@@ -37,7 +37,7 @@ body {
             }
 
             &.btn-disabled{
-                background-color: $dark-gray;
+                background-color: $color-dark-gray;
                 cursor: default;
                 pointer-events: none;
                 user-select: none;

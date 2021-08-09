@@ -1,94 +1,94 @@
-$purple: #A78BFA;
-$light-purple: lighten($purple, 10);
-$dark-purple: darken($purple, 10);
+$color-purple: #A78BFA;
+$color-light-purple: lighten($color-purple, 10);
+$color-dark-purple: darken($color-purple, 10);
 
-$pink: #F472B6;
-$light-pink: lighten($pink, 10);
-$dark-pink: darken($pink, 10);
+$color-pink: #F472B6;
+$color-light-pink: lighten($color-pink, 10);
+$color-dark-pink: darken($color-pink, 10);
 
-$red: #9e2727;
-$light-red: lighten($red, 10);
-$dark-red: darken($red, 10);
+$color-red: #9e2727;
+$color-light-red: lighten($color-red, 10);
+$color-dark-red: darken($color-red, 10);
 
-$orange: #f3722c;
-$light-orange: lighten($orange, 10);
-$dark-orange: darken($orange, 10);
+$color-orange: #f3722c;
+$color-light-orange: lighten($color-orange, 10);
+$color-dark-orange: darken($color-orange, 10);
 
-$yellow: #FBBF24;
-$light-yellow: lighten($yellow, 10);
-$dark-yellow: darken($yellow, 10);
+$color-yellow: #FBBF24;
+$color-light-yellow: lighten($color-yellow, 10);
+$color-dark-yellow: darken($color-yellow, 10);
 
-$green: #379037;
-$light-green: lighten($green, 10);
-$dark-green: darken($green, 10);
+$color-green: #379037;
+$color-light-green: lighten($color-green, 10);
+$color-dark-green: darken($color-green, 10);
 
-$blue: #245590;
-$light-blue: lighten($blue, 10);
-$dark-blue: darken($blue, 10);
+$color-blue: #245590;
+$color-light-blue: lighten($color-blue, 10);
+$color-dark-blue: darken($color-blue, 10);
 
-$gray: #bbb;
-$light-gray: lighten($gray, 10);
-$dark-gray: darken($gray, 10);
+$color-gray: #bbb;
+$color-light-gray: lighten($color-gray, 10);
+$color-dark-gray: darken($color-gray, 10);
 
 
-$light: #f2f2f2;
-$white: #fff;
-$dark: #222;
-$black: #000;
+$color-light: #f2f2f2;
+$color-white: #fff;
+$color-dark: #222;
+$color-black: #000;
 
 $colors: (
-        "light-purple": $light-purple,
-        "purple": $purple,
-        "dark-purple": $dark-purple,
-        "light-pink": $light-pink,
-        "pink": $pink,
-        "dark-pink": $dark-pink,
-        "light-red": $light-red,
-        "red": $red,
-        "dark-red": $dark-red,
-        "light-orange": $light-orange,
-        "orange": $orange,
-        "dark-orange": $dark-orange,
-        "light-yellow": $light-yellow,
-        "yellow": $yellow,
-        "dark-yellow": $dark-yellow,
-        "light-green": $light-green,
-        "green": $green,
-        "dark-green": $dark-green,
-        "light-blue": $light-blue,
-        "blue": $blue,
-        "dark-blue": $dark-blue,
-        "light-gray": $light-gray,
-        "gray": $gray,
-        "dark-gray": $dark-gray,
-        "dark": $dark,
-        "light": $light,
-        "white": $white,
+        "light-purple": $color-light-purple,
+        "purple": $color-purple,
+        "dark-purple": $color-dark-purple,
+        "light-pink": $color-light-pink,
+        "pink": $color-pink,
+        "dark-pink": $color-dark-pink,
+        "light-red": $color-light-red,
+        "red": $color-red,
+        "dark-red": $color-dark-red,
+        "light-orange": $color-light-orange,
+        "orange": $color-orange,
+        "dark-orange": $color-dark-orange,
+        "light-yellow": $color-light-yellow,
+        "yellow": $color-yellow,
+        "dark-yellow": $color-dark-yellow,
+        "light-green": $color-light-green,
+        "green": $color-green,
+        "dark-green": $color-dark-green,
+        "light-blue": $color-light-blue,
+        "blue": $color-blue,
+        "dark-blue": $color-dark-blue,
+        "light-gray": $color-light-gray,
+        "gray": $color-gray,
+        "dark-gray": $color-dark-gray,
+        "dark": $color-dark,
+        "light": $color-light,
+        "white": $color-white,
 );
 
 $background-color-main: #f7f9fb;
-$color-main: $black;
+$color-main: $color-black;
 
 $background-color-header: $background-color-main;
-$color-header: $blue;
-$border-color-header: $light-gray;
+$color-header: $color-blue;
+$border-color-header: $color-light-gray;
 
-$background-color-footer: $white;
-$color-footer: $blue;
-$border-color-footer: $light-gray;
+$background-color-footer: $color-white;
+$color-footer: $color-blue;
+$border-color-footer: $color-light-gray;
 
-$color-link: $blue;
-$color-link-hover: $green;
+$color-link: $color-blue;
+$color-link-hover: $color-green;
 
-$border: 1px solid $light-gray;
-$border-table: 1px solid $gray;
-$border-focus: 1px solid $blue;
+$border: 1px solid $color-light-gray;
+$border-table: 1px solid $color-gray;
+$border-focus: 1px solid $color-blue;
 
 $font-size-desktop: 16px;
 $font-size-mobile: 14px;
 
 $border-radius: .25rem;
-$box-shadow : 0 0 .25rem $light-gray;
+$box-shadow : 0 0 .25rem $color-light-gray;
 //$box-shadow : .125rem .125rem .25rem $light-gray;
 
 $breakpoints: (

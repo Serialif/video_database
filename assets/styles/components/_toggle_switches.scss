@@ -10,7 +10,7 @@ $toggle-translate: $toggle-height - (2 * $toggle-space);
 }
 
 .toggle-label {
-    background: $dark-gray;
+    background: $color-dark-gray;
     border-radius: math.div($toggle-height, 2);
     cursor: pointer;
     display: inline-block;
@@ -21,7 +21,7 @@ $toggle-translate: $toggle-height - (2 * $toggle-space);
     min-width: $toggle-height + $toggle-translate;
 
     &::before {
-        background: $white;
+        background: $color-white;
         border-radius: 50%;
         content: "";
         height: $toggle-height - ($toggle-space * 2);
@@ -38,5 +38,5 @@ $toggle-translate: $toggle-height - (2 * $toggle-space);
 }
 
 .toggle-checkbox:checked + .toggle-label {
-    background: $green;
+    background: $color-green;
 }
