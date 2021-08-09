@@ -1,4 +1,10 @@
 <ul class="menu">
     <li><a href="{{ path('app_home') }}" class="menu-item">Accueil</a></li>
-    <li><a href="{{ path('app_login') }}" class="menu-item">Se connecter</a></li>
+    <li>
+        {% if app.user is null %}
+            <a href="{{ path('app_login') }}" class="menu-item">Se connecter</a>
+        {% else %}
+            <a href="{{ path('app_logout') }}" class="menu-item">Se déconnecter</a>
+        {% endif %}
+    </li>
 </ul>
