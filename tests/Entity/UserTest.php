@@ -52,4 +52,11 @@ class UserTest extends TestCase
 
         $this->assertNotEmpty($user->getRoles());
     }
+
+    public function testRoleEqualUserIfIsNotSet(): void
+    {
+        $user = new User();
+
+        $this->assertEquals(['ROLE_USER'], $user->getRoles());
+    }
 }
