@@ -1,0 +1,27 @@
+.login-container {
+    h1 {
+        text-align: center;
+    }
+
+    .login-form {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border: $border;
+        padding: 1rem;
+        width: 300px;
+        margin-top: 2rem;
+
+        label {
+            padding-bottom: .5rem;
+        }
+
+        input {
+            padding: .25rem;
+            margin-bottom: 1rem;
+            border: $border;
+            outline: none;
+        }
+    }
+}
