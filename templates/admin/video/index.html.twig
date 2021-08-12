@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container videos-index-container">
-        <h1>Liste des vidéos</h1>
+        <h1>Liste des vidéos ({{ videos|length }})</h1>
 
         <div class="grid-table">
             <div class="grid-table-header grid-table-title">Titre</div>
@@ -13,7 +13,8 @@
             <div class="grid-table-header grid-table-image">Image</div>
             <div class="grid-table-header grid-table-created-at">Date de création</div>
             <div class="grid-table-header grid-table-updated-at">Date de modification</div>
-            <div class="grid-table-header grid-table-actions"><a href="{{ path('app_video_new') }}" class="btn-blue">Nouvelle vidéo</a></div>
+            <div class="grid-table-header grid-table-actions"><a href="{{ path('app_video_new') }}" class="btn-blue">Nouvelle
+                    vidéo</a></div>
             {% for video in videos %}
                 <div class="grid-table-title">{{ video.title }}</div>
                 <div class="grid-table-description">{{ video.description }}</div>
@@ -23,7 +24,11 @@
                 <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('m/d/y') : '' }}</div>
                 <div class="grid-table-actions">
                     <a href="{{ path('app_video_edit', {'id': video.id}) }}" class="btn-green">Éditer</a>
-                    <a href="{{ path('app_video_show', {'id': video.id}) }}" class="btn-red">Supprimer</a>
+                    <form method="post" action="{{ path('app_video_delete', {'id': video.id}) }}"
+                          onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette vidéo?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ video.id) }}">
+                        <button class="btn-red">Supprimer</button>
+                    </form>
                 </div>
             {% else %}
                 <div>

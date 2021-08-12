@@ -39,7 +39,7 @@ class VideoController extends AbstractController
             $entityManager->persist($video);
             $entityManager->flush();
 
-            return $this->redirectToRoute('video_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/video/new.html.twig', [
@@ -69,7 +69,7 @@ class VideoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('video_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/video/edit.html.twig', [
@@ -89,6 +89,6 @@ class VideoController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('video_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
     }
 }
