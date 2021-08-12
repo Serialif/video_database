@@ -9,10 +9,9 @@
         max-width: 500px;
         text-align: center;
         margin: auto;
-        border: 2px solid $color-youtube;
+        border: $border;
         padding: 1rem;
-        background-color: $color-dark;
-        color: $color-white;
+        background-color: $color-light;
         border-radius: $border-radius;
 
         #video {
@@ -37,9 +36,15 @@
                 }
             }
 
+            textarea{
+                resize: none;
+                overflow: hidden;
+            }
+
             label {
                 text-align: left;
                 margin-bottom: .25rem;
+                font-weight: 600;
             }
         }
 
