@@ -10,7 +10,8 @@ body {
     color: $color-main;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -18,13 +19,13 @@ body {
 }
 
 a, a:visited {
-    color: transparentize($color-white, .2);
+    //color: transparentize($color-white, .2);
     text-decoration: none;
     transition: .3s;
     font-weight: 600;
 
     &:hover {
-        color: $color-white;
+        //color: $color-white;
     }
 }
 
