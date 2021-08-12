@@ -91,12 +91,23 @@
     .grid-table-title {
         justify-content: flex-start;
         text-align: left;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            //padding-bottom: 1rem;
+        }
+
+        .description{
+            font-size: .9rem;
+            color: $color-dark-gray;
+        }
     }
 
     .grid-table-header {
         justify-content: center;
         font-weight: 600;
+
     }
 
     .grid-table-description,
@@ -132,7 +143,7 @@
         }
 
         .grid-table-actions--header{
-            margin: auto;
+            flex-direction: column;
         }
     }
 }
