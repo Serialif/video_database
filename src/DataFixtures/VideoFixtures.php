@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\DataFixtures\Config\FixturesConfig;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
@@ -10,7 +11,7 @@ class VideoFixtures extends AbstractFixtures
 {
     public function loadData(ObjectManager $manager)
     {
-        $urls = require 'src/DataFixtures/Config/youtubeUrls.php';
+        $urls = FixturesConfig::getYoutubeUrls();
 
         foreach($urls as $url) {
             $date = DateTimeImmutable::createFromMutable($this->faker->dateTime());
