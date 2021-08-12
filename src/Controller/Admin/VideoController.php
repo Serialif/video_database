@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Video;
 use App\Form\VideoType;
@@ -20,7 +20,7 @@ class VideoController extends AbstractController
      */
     public function index(VideoRepository $videoRepository): Response
     {
-        return $this->render('video/index.html.twig', [
+        return $this->render('admin/video/index.html.twig', [
             'videos' => $videoRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class VideoController extends AbstractController
             return $this->redirectToRoute('video_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('video/new.html.twig', [
+        return $this->renderForm('admin/video/new.html.twig', [
             'video' => $video,
             'form' => $form,
         ]);
@@ -53,7 +53,7 @@ class VideoController extends AbstractController
      */
     public function show(Video $video): Response
     {
-        return $this->render('video/show.html.twig', [
+        return $this->render('admin/video/show.html.twig', [
             'video' => $video,
         ]);
     }
@@ -72,7 +72,7 @@ class VideoController extends AbstractController
             return $this->redirectToRoute('video_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('video/edit.html.twig', [
+        return $this->renderForm('admin/video/edit.html.twig', [
             'video' => $video,
             'form' => $form,
         ]);
