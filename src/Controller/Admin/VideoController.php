@@ -87,7 +87,7 @@ class VideoController extends AbstractController
      */
     public function delete(Request $request, Video $video): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$video->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $video->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($video);
             $entityManager->flush();
