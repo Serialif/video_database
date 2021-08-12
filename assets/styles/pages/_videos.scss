@@ -1,7 +1,8 @@
-.videos-container{
+.videos-container {
     position: relative;
+    padding-bottom: 50px;
 
-    .pagination{
+    .pagination {
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -10,35 +11,71 @@
 }
 
 .videos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
     align-items: stretch;
 
-    .video{
-        max-width: 270px;
-        padding: 10px;
-        //border: 1px solid #88888888;
-        //border-radius: .25rem;
-        margin: 10px 0;
 
-        h2{
+    @include dimension-image(1);
+
+    .video {
+        margin: 10px auto;
+        flex: 1;
+
+        .img {
+            margin: auto;
+            text-align: center;
+            overflow: hidden;
+            border: $border;
+            border-radius: $border-radius;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        h2 {
+            padding: 5px;
             text-align: left;
-            //padding: 10px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 400;
         }
 
-        .img{
-            //padding: 10px;
-            text-align: center;
-            width: 250px;
-            height: auto;
+        .description{
+            text-align: justify;
+            font-size: .9rem;
+            padding-bottom: 1rem;
+            color: $color-dark-gray;
+        }
+    }
+}
 
-            img{
-                width: 250px;
-                height: 150px;
+@include screen(tablet) {
+    .videos {
+        @include dimension-image(2);
+
+        .video{
+            .description{
+                font-size: .8rem;
             }
         }
+    }
+}
+
+@include screen(desktop) {
+    .videos {
+        @include dimension-image(4);
+
+        .video{
+            .description{
+                //font-size: .7rem;
+            }
+        }
+    }
+}
+
+@include screen(xxl) {
+    .videos {
+        @include dimension-image(6);
     }
 }

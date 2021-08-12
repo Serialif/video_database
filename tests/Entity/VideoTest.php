@@ -17,14 +17,12 @@ class VideoTest extends TestCase
         $video->setTitle('title');
         $video->setDescription('description');
         $video->setUrl('url');
-        $video->setImage('image');
         $video->setCreatedAt($date);
         $video->setUpdatedAt($date);
 
         $this->assertTrue($video->getTitle() === 'title');
         $this->assertTrue($video->getDescription() === 'description');
         $this->assertTrue($video->getUrl() === 'url');
-        $this->assertTrue($video->getImage() === 'image');
         $this->assertTrue($video->getCreatedAt() === $date);
         $this->assertTrue($video->getUpdatedAt() === $date);
     }
@@ -38,14 +36,12 @@ class VideoTest extends TestCase
         $video->setTitle('title');
         $video->setDescription('description');
         $video->setUrl('url');
-        $video->setImage('image');
         $video->setCreatedAt($date);
         $video->setUpdatedAt($date);
 
         $this->assertFalse($video->getTitle() === 'false');
         $this->assertFalse($video->getDescription() === 'false');
         $this->assertFalse($video->getUrl() === 'false');
-        $this->assertFalse($video->getImage() === 'false');
         $this->assertFalse($video->getCreatedAt() === new DateTimeImmutable());
         $this->assertFalse($video->getUpdatedAt() === new DateTimeImmutable());
     }
@@ -57,7 +53,6 @@ class VideoTest extends TestCase
         $this->assertEmpty($video->getTitle());
         $this->assertEmpty($video->getDescription());
         $this->assertEmpty($video->getUrl());
-        $this->assertEmpty($video->getImage());
         $this->assertEmpty($video->getCreatedAt());
         $this->assertEmpty($video->getUpdatedAt());
     }

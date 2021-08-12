@@ -9,15 +9,15 @@
             {% for video in videos %}
                 <div class="video">
                     <div class="img">
-
-                        <a href="{{ video.url }}"><img src="{{ video.image }}" alt="{{ video.title }}"></a>
+                        <a href="{{ video.url }}"><img src="{{ video.url|get_image }}" alt="{{ video.title }}"
+                            title="{{ video.description }}"></a>
                     </div>
                     <div>
                         <h2>{{ video.title }}</h2>
                     </div>
-                    {# <div> #}
-                    {# {{ excerpt(video.description) }} #}
-                    {# </div> #}
+                     <div class="description">
+                     {{ video.description|raw }}
+                     </div>
                 </div>
             {% endfor %}
         </div>

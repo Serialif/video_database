@@ -1,3 +1,27 @@
+@use "sass:math";
+
+@mixin dimension-image($images-per-line: 0) {
+    $width: math.div(80vw, $images-per-line);
+    $ratio: 1.78;
+    $height: math.div($width, $ratio);
+    $translation: $height * math.div(-20, 118);
+
+    grid-template-columns: repeat(#{$images-per-line}, 1fr);
+
+    .video {
+        width: $width;
+
+        .img {
+            width: $width;
+            height: $height;
+
+            img {
+                transform: translateY($translation);
+            }
+        }
+    }
+}
+
 @mixin colorize-button($color) {
     border: 1px solid darken($color, 40);
     background: darken($color, 20);

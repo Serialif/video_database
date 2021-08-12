@@ -21,6 +21,7 @@
 
 ###> personnal ###
 .idea
+.todo
 ###< personnal ###
 
 ###> squizlabs/php_codesniffer ###
