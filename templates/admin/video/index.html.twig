@@ -14,7 +14,10 @@
             <div class="grid-table-header grid-table-created-at">Date de création</div>
             <div class="grid-table-header grid-table-updated-at">Date de modification</div>
             <div class="grid-table-header grid-table-actions">
-                <a href="{{ path('app_video_new') }}" class="btn-blue grid-table-actions--header">Ajouter une vidéo</a>
+                <a href="{{ path('app_video_new') }}" class="btn-blue grid-table-actions--header"
+                   title="Ajouter une vidéo">
+                    <img src="{{ asset('build/images/icons/add.png') }}" alt="Ajouter">
+                </a>
             </div>
             {% for video in videos %}
                 <div class="grid-table-title">
@@ -31,11 +34,15 @@
                 <div class="grid-table-created-at">{{ video.createdAt ? video.createdAt|date('d/m/y') : '' }}</div>
                 <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('d/m/y') : '' }}</div>
                 <div class="grid-table-actions">
-                    <a href="{{ path('app_video_edit', {'id': video.id}) }}" class="btn-green">Modifier</a>
+                    <a href="{{ path('app_video_edit', {'id': video.id}) }}" class="btn-green" title="Modifier">
+                        <img src="{{ asset('build/images/icons/edit.png') }}" alt="Modifier">
+                    </a>
                     <form method="post" action="{{ path('app_video_delete', {'id': video.id}) }}"
                           onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette vidéo?');">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ video.id) }}">
-                        <button class="btn-red">Supprimer</button>
+                        <button class="btn-red" title="Supprimer">
+                            <img src="{{ asset('build/images/icons/delete.png') }}" alt="Supprimer">
+                        </button>
                     </form>
                 </div>
             {% else %}
