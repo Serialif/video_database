@@ -13,11 +13,12 @@ class VideoFixtures extends AbstractFixtures
     {
         $urls = FixturesConfig::getYoutubeUrls();
 
-        foreach($urls as $url) {
+        foreach ($urls as $url) {
             $date = DateTimeImmutable::createFromMutable($this->faker->dateTime());
 
             $video = new Video();
 
+            /** @phpstan-ignore-next-line */
             $video->setTitle($this->faker->catchPhrase());
             $video->setDescription($this->faker->paragraph());
             $video->setUrl($url);
