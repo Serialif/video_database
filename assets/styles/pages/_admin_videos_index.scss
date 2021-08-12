@@ -1,17 +1,71 @@
-.videos-index-container{
+.admin-videos-container {
     padding: 1rem .25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-video {
+        width: 95%;
+        max-width: 500px;
+        text-align: center;
+        margin: auto;
+        border: 2px solid $color-youtube;
+        padding: 1rem;
+        background-color: $color-dark;
+        color: $color-white;
+        border-radius: $border-radius;
+
+        #video {
+            > div {
+                display: flex;
+                flex-direction: column;
+                padding: .75rem 0;
+            }
+
+            input, textarea {
+                width: 100% !important;
+                margin: auto;
+                padding: 1rem;
+                border-radius: $border-radius;
+                border: $border;
+                outline: none;
+                background: $color-white;
+
+                &:focus {
+                    border: $border-focus;
+                    outline: none;
+                }
+            }
+
+            label {
+                text-align: left;
+                margin-bottom: .25rem;
+            }
+        }
+
+
+        .form-btn {
+            border: 1px solid $color-dark;
+            margin: 1rem 0 0 0;
+        }
+    }
+
+    a {
+        margin-top: 1rem;
+    }
 }
 
 .grid-table {
     display: grid;
     grid-template-columns: 3fr 3fr 1fr;
     border: $border;
+    padding: 1rem;
     margin: 1rem auto;
     width: 98%;
 
     @include striped(7);
 
-    > div{
+    > div {
         display: flex;
         justify-content: flex-start;
         //border: $border;
@@ -19,11 +73,11 @@
         text-align: center;
     }
 
-    .grid-table-title{
+    .grid-table-title {
         align-items: center;
     }
 
-    .grid-table-header{
+    .grid-table-header {
         justify-content: center;
         font-weight: 600;
     }
@@ -37,18 +91,32 @@
         align-items: center;
     }
 
-    .grid-table-image{
+    .grid-table-image {
         justify-content: center;
-        img{
+        align-items: center;
+        padding: 1rem;
+
+        img {
             width: 100%;
             max-width: 250px;
             height: auto;
         }
     }
 
-    .grid-table-actions{
+    .grid-table-actions {
         justify-content: center;
         flex-direction: column;
+        //align-items: center;
+
+        form {
+            button {
+                width: 100%;
+            }
+        }
+
+        .grid-table-actions--header{
+            margin: auto;
+        }
     }
 }
 
@@ -56,6 +124,7 @@
     .grid-table {
         grid-template-columns: 3fr 3fr 1fr;
         width: 90%;
+        padding: 2rem;
     }
 
 }
@@ -64,10 +133,10 @@
     .grid-table {
         grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
         width: 80%;
+        padding: 2rem;
 
         .grid-table-created-at,
-        .grid-table-updated-at
-        {
+        .grid-table-updated-at {
             display: flex;
         }
     }

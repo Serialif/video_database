@@ -1,4 +1,4 @@
-{{ form_start(form) }}
+{{ form_start(form,  {'attr': {'class': 'form-video'}}) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<button class="btn-green form-btn">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}
