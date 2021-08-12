@@ -17,6 +17,8 @@
     <body>
         {{ include('layouts/_menu.html.twig') }}
 
+        {{ include('layouts/_flash_messages.html.twig') }}
+
         {% block body %}{% endblock %}
 
         {{ include('layouts/_footer.html.twig') }}
