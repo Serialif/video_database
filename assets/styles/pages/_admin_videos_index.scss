@@ -1,14 +1,26 @@
+.videos-index-container{
+    padding: 1rem .25rem;
+}
+
 .grid-table {
     display: grid;
     grid-template-columns: 3fr 3fr 1fr;
     border: $border;
+    margin: 1rem auto;
+    width: 98%;
+
+    @include striped(7);
 
     > div{
         display: flex;
         justify-content: flex-start;
-        border: $border;
-        padding: .5rem .3rem;
+        //border: $border;
+        padding: .5rem;
         text-align: center;
+    }
+
+    .grid-table-title{
+        align-items: center;
     }
 
     .grid-table-header{
@@ -22,27 +34,28 @@
     .grid-table-updated-at {
         justify-content: center;
         display: none;
+        align-items: center;
     }
 
     .grid-table-image{
         justify-content: center;
         img{
-            width: 200px;
+            width: 100%;
+            max-width: 250px;
             height: auto;
         }
     }
 
     .grid-table-actions{
         justify-content: center;
-        //display: block;
         flex-direction: column;
-        //text-align: center;
     }
 }
 
 @include screen(tablet) {
     .grid-table {
         grid-template-columns: 3fr 3fr 1fr;
+        width: 90%;
     }
 
 }
@@ -50,7 +63,7 @@
 @include screen(desktop) {
     .grid-table {
         grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
-
+        width: 80%;
 
         .grid-table-created-at,
         .grid-table-updated-at
