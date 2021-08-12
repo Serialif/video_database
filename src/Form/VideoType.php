@@ -61,13 +61,13 @@ class VideoType extends AbstractType
                     ]
                 ]
             )
-            ->add(
-                'image',
-                TextType::class,
-                [
-                    'label' => 'Image'
-                ]
-            )
+//            ->add(
+//                'image',
+//                TextType::class,
+//                [
+//                    'label' => 'Image'
+//                ]
+//            )
 //            ->add('createdAt',
 //                  DateType::class,
 //                  [
