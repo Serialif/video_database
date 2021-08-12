@@ -46,6 +46,16 @@
                 margin-bottom: .25rem;
                 font-weight: 600;
             }
+
+            ul{
+                li{
+                    background: $color-light-red;
+                    color: $color-white;
+                    border-radius: $border-radius;
+                    margin: .25rem 0;
+                    padding: .5rem;
+                }
+            }
         }
 
 
@@ -79,6 +89,8 @@
     }
 
     .grid-table-title {
+        justify-content: flex-start;
+        text-align: left;
         align-items: center;
     }
 

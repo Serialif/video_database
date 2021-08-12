@@ -10,6 +10,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Url;
 
 class VideoType extends AbstractType
 {
@@ -20,26 +24,49 @@ class VideoType extends AbstractType
                 'title',
                 TextType::class,
                 [
-                    'label' => 'Titre'
+                    'label' => 'Titre',
+                    'constraints' => [
+                        new NotBlank(),
+                        new Length(
+                            [
+                                'min' => 2,
+                            ]
+                        )
+                    ]
                 ]
             )
-            ->add('description',
-                  TextareaType::class,
-                  [
-                      'label' => 'Description'
-                  ]
+            ->add(
+                'description',
+                TextareaType::class,
+                [
+                    'label' => 'Description',
+                    'constraints' => [
+                        new NotBlank(),
+                        new Length(
+                            [
+                                'min' => 2,
+                            ]
+                        )
+                    ]
+                ]
             )
-            ->add('url',
-                  UrlType::class,
-                  [
-                      'label' => 'Url'
-                  ]
+            ->add(
+                'url',
+                UrlType::class,
+                [
+                    'label' => 'Url',
+                    'constraints' => [
+                        new NotBlank(),
+                        new Url()
+                    ]
+                ]
             )
-            ->add('image',
-                  TextType::class,
-                  [
-                      'label' => 'Image'
-                  ]
+            ->add(
+                'image',
+                TextType::class,
+                [
+                    'label' => 'Image'
+                ]
             )
 //            ->add('createdAt',
 //                  DateType::class,

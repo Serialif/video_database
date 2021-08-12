@@ -21,8 +21,8 @@
                 <div class="grid-table-description">{{ video.description }}</div>
                 <div class="grid-table-url">{{ video.url }}</div>
                 <div class="grid-table-image"><img src="{{ video.image }}" alt="{{ video.title }}"></div>
-                <div class="grid-table-created-at">{{ video.createdAt ? video.createdAt|date('m/d/y') : '' }}</div>
-                <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('m/d/y') : '' }}</div>
+                <div class="grid-table-created-at">{{ video.createdAt ? video.createdAt|date('d/m/y') : '' }}</div>
+                <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('d/m/y') : '' }}</div>
                 <div class="grid-table-actions">
                     <a href="{{ path('app_video_edit', {'id': video.id}) }}" class="btn-green">Modifier</a>
                     <form method="post" action="{{ path('app_video_delete', {'id': video.id}) }}"
