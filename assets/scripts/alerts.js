@@ -1,11 +1,7 @@
-textAreas = document.querySelectorAll('textarea')
+messages = document.querySelectorAll('.alert')
 
-for (let textArea of textAreas) {
-    textArea.style.height = '5px'
-    textArea.style.height = (textArea.scrollHeight + 2) + 'px'
-
-    textArea.addEventListener('keyup', function(){
-        textArea.style.height = '5px'
-        textArea.style.height = (textArea.scrollHeight + 2) + 'px'
+for (message of messages) {
+    message.addEventListener('click', function (e) {
+        e.target.parentElement.removeChild(e.target)
     })
 }
