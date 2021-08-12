@@ -24,7 +24,7 @@ class VideoController extends AbstractController
         return $this->render(
             'admin/video/index.html.twig',
             [
-                'videos' => $videoRepository->findAll(),
+                'videos' => $videoRepository->findBy([], ['createdAt' => 'DESC']),
             ]
         );
     }

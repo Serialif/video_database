@@ -18,7 +18,7 @@ class VideoFixtures extends AbstractFixtures
             $video = new Video();
 
             $video->setTitle($this->faker->catchPhrase());
-            $video->setDescription($this->faker->paragraphs(3, true));
+            $video->setDescription($this->faker->paragraph());
             $video->setUrl($url);
             $video->setCreatedAt($date);
 

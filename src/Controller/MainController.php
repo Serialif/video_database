@@ -16,7 +16,7 @@ class MainController extends AbstractController
      */
     public function index(Request $request, VideoRepository $videoRepository, PaginatorInterface $paginator): Response
     {
-        $data = $videoRepository->findAll();
+        $data = $videoRepository->findBy([], ['createdAt' => 'DESC']);
 
         $videos = $paginator->paginate(
             $data,
@@ -24,8 +24,11 @@ class MainController extends AbstractController
             12
         );
 
-        return $this->render('main/index.html.twig', [
-            'videos' => $videos,
-        ]);
+        return $this->render(
+            'main/index.html.twig',
+            [
+                'videos' => $videos,
+            ]
+        );
     }
 }

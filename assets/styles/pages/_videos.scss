@@ -21,16 +21,6 @@
         margin: 10px auto;
         flex: 1;
 
-        h2 {
-            //width: 80%;
-            padding: 10px 5px;
-            text-align: left;
-            font-size: 1rem;
-            font-weight: 400;
-            //margin: auto;
-        }
-
-
         .img {
             margin: auto;
             text-align: center;
@@ -43,18 +33,44 @@
                 height: auto;
             }
         }
+
+        h2 {
+            padding: 5px;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .description{
+            text-align: justify;
+            font-size: .9rem;
+            padding-bottom: 1rem;
+            color: $color-dark-gray;
+        }
     }
 }
 
 @include screen(tablet) {
     .videos {
         @include dimension-image(2);
+
+        .video{
+            .description{
+                font-size: .8rem;
+            }
+        }
     }
 }
 
 @include screen(desktop) {
     .videos {
         @include dimension-image(4);
+
+        .video{
+            .description{
+                //font-size: .7rem;
+            }
+        }
     }
 }
 
