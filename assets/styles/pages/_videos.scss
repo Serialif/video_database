@@ -1,5 +1,6 @@
 .videos-container{
     position: relative;
+    height: 100%;
 
     .pagination{
         position: absolute;
@@ -37,7 +38,7 @@
 
             img{
                 width: 250px;
-                height: 150px;
+                height: auto;
             }
         }
     }

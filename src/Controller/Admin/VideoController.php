@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Video;
 use App\Form\VideoType;
 use App\Repository\VideoRepository;
+use App\Service\YoutubeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +21,12 @@ class VideoController extends AbstractController
      */
     public function index(VideoRepository $videoRepository): Response
     {
-        return $this->render('admin/video/index.html.twig', [
-            'videos' => $videoRepository->findAll(),
-        ]);
+        return $this->render(
+            'admin/video/index.html.twig',
+            [
+                'videos' => $videoRepository->findAll(),
+            ]
+        );
     }
 
     /**
@@ -44,20 +48,13 @@ class VideoController extends AbstractController
             return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/video/new.html.twig', [
-            'video' => $video,
-            'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Video $video): Response
-    {
-        return $this->render('admin/video/show.html.twig', [
-            'video' => $video,
-        ]);
+        return $this->renderForm(
+            'admin/video/new.html.twig',
+            [
+                'video' => $video,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
@@ -76,10 +73,13 @@ class VideoController extends AbstractController
             return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/video/edit.html.twig', [
-            'video' => $video,
-            'form' => $form,
-        ]);
+        return $this->renderForm(
+            'admin/video/edit.html.twig',
+            [
+                'video' => $video,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
