@@ -8,7 +8,7 @@
 }
 
 // Striped grid table rows
-@mixin striped($cols-number, $row-color1: $light, $row-color2: $white, $header-color: $light-gray) {
+@mixin striped($cols-number, $row-color1: $color-light, $row-color2: $color-white, $header-color: $color-light-gray) {
     > div {
         background: $row-color1;
     }
@@ -20,7 +20,7 @@
             //background: $header-color;
             //color: invert($header-color);
             background: $row-color2;
-            border-bottom: 1px solid $black;
+            border-bottom: 2px solid $color-dark;
             z-index: 10;
             position: sticky;
             top: 0;

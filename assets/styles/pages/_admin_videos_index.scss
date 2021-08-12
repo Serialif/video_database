@@ -1,0 +1,160 @@
+.admin-videos-container {
+    padding: 1rem .25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-video {
+        width: 95%;
+        max-width: 500px;
+        text-align: center;
+        margin: auto;
+        border: $border;
+        padding: 1rem;
+        background-color: $color-light;
+        border-radius: $border-radius;
+
+        #video {
+            > div {
+                display: flex;
+                flex-direction: column;
+                padding: .75rem 0;
+            }
+
+            input, textarea {
+                width: 100% !important;
+                margin: auto;
+                padding: 1rem;
+                border-radius: $border-radius;
+                border: $border;
+                outline: none;
+                background: $color-white;
+
+                &:focus {
+                    border: $border-focus;
+                    outline: none;
+                }
+            }
+
+            textarea{
+                resize: none;
+                overflow: hidden;
+            }
+
+            label {
+                text-align: left;
+                margin-bottom: .25rem;
+                font-weight: 600;
+            }
+
+            ul{
+                li{
+                    background: $color-light-red;
+                    color: $color-white;
+                    border-radius: $border-radius;
+                    margin: .25rem 0;
+                    padding: .5rem;
+                }
+            }
+        }
+
+
+        .form-btn {
+            border: 1px solid $color-dark;
+            margin: 1rem 0 0 0;
+        }
+    }
+
+    a {
+        margin-top: 1rem;
+    }
+}
+
+.grid-table {
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    border: $border;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 98%;
+
+    @include striped(7);
+
+    > div {
+        display: flex;
+        justify-content: flex-start;
+        //border: $border;
+        padding: .5rem;
+        text-align: center;
+    }
+
+    .grid-table-title {
+        justify-content: flex-start;
+        text-align: left;
+        align-items: center;
+    }
+
+    .grid-table-header {
+        justify-content: center;
+        font-weight: 600;
+    }
+
+    .grid-table-description,
+    .grid-table-url,
+    .grid-table-created-at,
+    .grid-table-updated-at {
+        justify-content: center;
+        display: none;
+        align-items: center;
+    }
+
+    .grid-table-image {
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+
+        img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
+    }
+
+    .grid-table-actions {
+        justify-content: center;
+        flex-direction: column;
+        //align-items: center;
+
+        form {
+            button {
+                width: 100%;
+            }
+        }
+
+        .grid-table-actions--header{
+            margin: auto;
+        }
+    }
+}
+
+@include screen(tablet) {
+    .grid-table {
+        grid-template-columns: 3fr 3fr 1fr;
+        width: 90%;
+        padding: 2rem;
+    }
+
+}
+
+@include screen(desktop) {
+    .grid-table {
+        grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
+        width: 80%;
+        padding: 2rem;
+
+        .grid-table-created-at,
+        .grid-table-updated-at {
+            display: flex;
+        }
+    }
+}

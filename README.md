@@ -80,5 +80,3 @@ php bin/phpcbf
 ## License
 
 MIT
-
-</body>
