@@ -17,7 +17,14 @@
                 <a href="{{ path('app_video_new') }}" class="btn-blue grid-table-actions--header">Ajouter une vidéo</a>
             </div>
             {% for video in videos %}
-                <div class="grid-table-title">{{ video.title }}</div>
+                <div class="grid-table-title">
+                    <div class="title">
+                        {{ video.title }}
+                    </div>
+                    <div class="description">
+                        {{ video.description }}
+                    </div>
+                </div>
                 <div class="grid-table-description">{{ video.description }}</div>
                 <div class="grid-table-url">{{ video.url }}</div>
                 <div class="grid-table-image"><img src="{{ video.url|get_image }}" alt="{{ video.title }}"></div>

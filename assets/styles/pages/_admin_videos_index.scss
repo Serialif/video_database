@@ -91,7 +91,17 @@
     .grid-table-title {
         justify-content: flex-start;
         text-align: left;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            //padding-bottom: 1rem;
+        }
+
+        .description{
+            font-size: .9rem;
+            color: $color-dark-gray;
+        }
     }
 
     .grid-table-header {
