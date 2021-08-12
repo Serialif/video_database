@@ -1,5 +1,6 @@
 <ul class="menu">
     <li><a href="{{ path('app_home') }}" class="menu-item">Accueil</a></li>
+    <li><a href="{{ path('app_video_index') }}" class="menu-item">Administration</a></li>
     <li>
         {% if app.user is null %}
             <a href="{{ path('app_login') }}" class="menu-item">Se connecter</a>
