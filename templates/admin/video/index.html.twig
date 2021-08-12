@@ -1,47 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Video index{% endblock %}
+{% block title %}Liste des vidéos{% endblock %}
 
 {% block body %}
-    <div class="container videos-container">
-        <h1>Video index</h1>
+    <div class="container videos-grid-table-container">
+        <h1>Liste des vidéos</h1>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Url</th>
-                    <th>Image</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for video in videos %}
-                    <tr>
-                        <td>{{ video.id }}</td>
-                        <td>{{ video.title }}</td>
-                        <td>{{ video.description }}</td>
-                        <td>{{ video.url }}</td>
-                        <td>{{ video.image }}</td>
-                        <td>{{ video.createdAt ? video.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ video.updatedAt ? video.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>
-                            <a href="{{ path('app_video_show', {'id': video.id}) }}">show</a>
-                            <a href="{{ path('app_video_edit', {'id': video.id}) }}">edit</a>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="8">no records found</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <a href="{{ path('app_video_new') }}">Create new</a>
+        <div class="grid-table">
+            <div class="grid-table-header grid-table-title">Titre</div>
+            <div class="grid-table-header grid-table-description">Description</div>
+            <div class="grid-table-header grid-table-url">Url</div>
+            <div class="grid-table-header grid-table-image">Image</div>
+            <div class="grid-table-header grid-table-created-at">Date de création</div>
+            <div class="grid-table-header grid-table-updated-at">Date de modification</div>
+            <div class="grid-table-header grid-table-actions"><a href="{{ path('app_video_new') }}" class="btn-blue">Nouvelle vidéo</a></div>
+            {% for video in videos %}
+                <div class="grid-table-title">{{ video.title }}</div>
+                <div class="grid-table-description">{{ video.description }}</div>
+                <div class="grid-table-url">{{ video.url }}</div>
+                <div class="grid-table-image"><img src="{{ video.image }}" alt="{{ video.title }}"></div>
+                <div class="grid-table-created-at">{{ video.createdAt ? video.createdAt|date('m/d/y') : '' }}</div>
+                <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('m/d/y') : '' }}</div>
+                <div class="grid-table-actions">
+                    <a href="{{ path('app_video_edit', {'id': video.id}) }}" class="btn-green">Éditer</a>
+                    <a href="{{ path('app_video_show', {'id': video.id}) }}" class="btn-red">Supprimer</a>
+                </div>
+            {% else %}
+                <div>
+                    <div>no records found</div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
