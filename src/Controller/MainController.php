@@ -21,7 +21,7 @@ class MainController extends AbstractController
         $videos = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            20
+            12
         );
 
         return $this->render('main/index.html.twig', [

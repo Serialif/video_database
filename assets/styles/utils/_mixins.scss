@@ -1,9 +1,7 @@
 @use "sass:math";
 
-@mixin dimension-image($images-per-line: 0, $width:null) {
-    @if ($width == null) {
-        $width: math.div(80vw, $images-per-line);
-    }
+@mixin dimension-image($images-per-line: 0) {
+    $width: math.div(80vw, $images-per-line);
     $ratio: 1.78;
     $height: math.div($width, $ratio);
     $translation: $height * math.div(-20, 118);
@@ -11,9 +9,7 @@
     grid-template-columns: repeat(#{$images-per-line}, 1fr);
 
     .video {
-        @if ($width == null) {
-            width: $width;
-        }
+        width: $width;
 
         .img {
             width: $width;

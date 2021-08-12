@@ -12,19 +12,22 @@
 
 .videos {
     display: grid;
+    align-items: stretch;
 
 
     @include dimension-image(1);
 
     .video {
-        margin: 10px;
+        margin: 10px auto;
         flex: 1;
 
         h2 {
-            padding: 5px;
+            //width: 80%;
+            padding: 10px 5px;
             text-align: left;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 400;
+            //margin: auto;
         }
 
 
