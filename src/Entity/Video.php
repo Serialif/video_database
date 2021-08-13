@@ -49,6 +49,7 @@ class Video
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="videos")
+     * @ORM\JoinTable(name="video_db_video_tag")
      */
     private $tags;
 

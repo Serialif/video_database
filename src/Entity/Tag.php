@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=TagRepository::class)
+ * @ORM\Table(name="video_db_tag")
  */
 class Tag
 {
@@ -36,6 +37,7 @@ class Tag
 
     /**
      * @ORM\ManyToMany(targetEntity=Video::class, mappedBy="tags")
+     * @ORM\JoinTable(name="video_db_video_tag")
      */
     private $videos;
 
