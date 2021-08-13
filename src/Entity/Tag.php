@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TagRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Tag
      * @ORM\Column(type="string", length=9, nullable=true)
      */
     private $color;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Video::class, mappedBy="tags")
+     */
+    private $videos;
+
+    public function __construct()
+    {
+        $this->videos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,33 @@ class Tag
     public function setColor(?string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->addTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            $video->removeTag($this);
+        }
 
         return $this;
     }
