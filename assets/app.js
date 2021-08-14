@@ -9,6 +9,18 @@
 import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
 
 import './scripts/alerts'
+
+const $menuItems = document.querySelectorAll(".menu > li")
+
+for (const $menuItem of $menuItems) {
+    const width = Math.ceil(100 / $menuItems.length)
+    $menuItem.style.width = width + '%'
+    $menuItem.style.mawwidth = width + '%'
+    console.log($menuItem.style.width)
+}
+
+// width: 34%;
+// max-width: 34%;

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/video", name="app_video_")
+ * @Route("/admin/video", name="app_video_")
  */
 class VideoController extends AbstractController
 {
