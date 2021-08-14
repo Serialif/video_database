@@ -60,7 +60,7 @@ php bin/phpunit --testdox
 Run analyse
 
 ```bash
-php bin/phpstan analyse src/ tests/ --level=3
+php bin/phpstan
 ```
 
 ### PHP_CodeSniffer
