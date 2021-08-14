@@ -13,6 +13,11 @@
                             title="{{ video.description }}"></a>
                     </div>
                     <div>
+                        {% for tag in video.tags %}
+                            <span style="background: {{ tag.bgcolor }};color: {{ tag.color }};">{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                    <div>
                         <h2>{{ video.title }}</h2>
                     </div>
                      <div class="description">
