@@ -53,4 +53,35 @@ class FixturesConfig
             'https://www.youtube.com/watch?v=D9lhkSLB4Qk',
         ];
     }
+
+    public static function getTags(): array
+    {
+        return [
+            [
+                'name' => 'Javascript',
+                'bgcolor' => '#EFD81D',
+                'color' => '#000000'
+            ],
+            [
+                'name' => 'Sass',
+                'bgcolor' => '#C76494',
+                'color' => '#F7F7F7'
+            ],
+            [
+                'name' => 'Docker',
+                'bgcolor' => '#2496ED',
+                'color' => '#ffffff'
+            ],
+            [
+                'name' => 'PHP',
+                'bgcolor' => '#8892BF',
+                'color' => '#222530'
+            ],
+            [
+                'name' => 'Symfony',
+                'bgcolor' => '#000000',
+                'color' => '#F7F7F7'
+            ],
+        ];
+    }
 }

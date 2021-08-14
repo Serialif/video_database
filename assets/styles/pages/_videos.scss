@@ -41,11 +41,25 @@
             font-weight: 400;
         }
 
-        .description{
+        .description {
             text-align: justify;
             font-size: .9rem;
             padding-bottom: 1rem;
             color: $color-dark-gray;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .tag {
+                font-size: .8rem;
+                display: inline-block;
+                padding: 2px 5px;
+                border-radius: $border-radius;
+                margin: 2px;
+            }
         }
     }
 }
@@ -54,8 +68,8 @@
     .videos {
         @include dimension-image(2);
 
-        .video{
-            .description{
+        .video {
+            .description {
                 font-size: .8rem;
             }
         }
@@ -66,8 +80,8 @@
     .videos {
         @include dimension-image(4);
 
-        .video{
-            .description{
+        .video {
+            .description {
                 //font-size: .7rem;
             }
         }

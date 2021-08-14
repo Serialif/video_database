@@ -11,6 +11,7 @@
             <div class="grid-table-header grid-table-description">Description</div>
             <div class="grid-table-header grid-table-url">Url</div>
             <div class="grid-table-header grid-table-image">Image</div>
+            <div class="grid-table-header grid-table-tags">Mots clés</div>
             <div class="grid-table-header grid-table-created-at">Date de création</div>
             <div class="grid-table-header grid-table-updated-at">Date de modification</div>
             <div class="grid-table-header grid-table-actions">
@@ -31,6 +32,12 @@
                 <div class="grid-table-description">{{ video.description }}</div>
                 <div class="grid-table-url">{{ video.url }}</div>
                 <div class="grid-table-image"><img src="{{ video.url|get_image }}" alt="{{ video.title }}"></div>
+                <div class="grid-table-tags">
+                    {% for tag in video.tags %}
+                        <span style="background: {{ tag.bgcolor }};color: {{ tag.color }};"
+                              class="tag">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
                 <div class="grid-table-created-at">{{ video.createdAt ? video.createdAt|date('d/m/y') : '' }}</div>
                 <div class="grid-table-updated-at">{{ video.updatedAt ? video.updatedAt|date('d/m/y') : '' }}</div>
                 <div class="grid-table-actions">

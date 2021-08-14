@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\VideoRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,6 +46,17 @@ class Video
      * @ORM\Column(type="datetime_immutable")
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="videos")
+     * @ORM\JoinTable(name="video_db_video_tag")
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,5 +135,29 @@ class Video
             $this->setCreatedAt($date);
         }
         $this->setUpdatedAt($date);
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
+
+        return $this;
     }
 }
