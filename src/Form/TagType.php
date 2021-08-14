@@ -15,7 +15,6 @@ class TagType extends AbstractType
             ->add('name')
             ->add('bgcolor')
             ->add('color')
-            ->add('videos')
         ;
     }
 
