@@ -1,96 +1,29 @@
 @import "assets/styles/components/grid_table";
 
 .grid-table {
-    grid-template-columns: 3fr 3fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    @include striped(8);
-
-    .grid-table-title {
-        justify-content: flex-start;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-
-        .title {
-            //padding-bottom: 1rem;
-        }
-
-        .description {
-            display: none;
-            font-size: .9rem;
-            color: $color-dark-gray;
-        }
-    }
+    @include striped(2);
 
     .grid-table-header {
         justify-content: center;
         font-weight: 600;
     }
 
-    .grid-table-description,
-    .grid-table-url,
-    .grid-table-tags,
-    .grid-table-created-at,
-    .grid-table-updated-at {
-        justify-content: center;
-        display: none;
-        align-items: center;
-    }
-
-    .grid-table-image {
+    .grid-table-tag {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding: .5rem;
+        align-content: center;
 
-        img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-        }
-    }
-}
-
-@include screen(tablet) {
-    .grid-table {
-        grid-template-columns: 3fr 3fr 1fr;
-
-        .grid-table-title {
-            .description {
-                display: block;
-            }
-        }
-
-        .grid-table-image {
-            padding: 1rem;
-        }
-    }
-
-}
-
-@include screen(desktop) {
-    .grid-table {
-        grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
-
-        .grid-table-created-at,
-        {
-            display: flex;
-        }
-
-        .grid-table-tags {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: flex-start;
-            align-content: flex-start;
-
-            .tag {
-                font-size: .8rem;
-                display: inline-block;
-                padding: 2px 5px;
-                border-radius: $border-radius;
-                margin: 2px;
-            }
+        .tag {
+            font-size: .8rem;
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: $border-radius;
+            margin: 2px;
         }
     }
 }

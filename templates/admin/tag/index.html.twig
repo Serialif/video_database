@@ -8,10 +8,10 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container admin-tags-container">
+    <div class="container">
         <h1>Liste des mots clé ({{ tags|length }})</h1>
 
-        <div class="grid-table-tags">
+        <div class="grid-table">
             <div class="grid-table-header grid-table-tag">Mot clé</div>
             <div class="grid-table-header grid-table-actions">
                 <a href="{{ path('app_tag_new') }}" class="btn-blue grid-table-actions--header"
@@ -20,8 +20,9 @@
                 </a>
             </div>
             {% for tag in tags %}
-                <div class="grid-table-tag"
-                     style="background: {{ tag.bgcolor }}; color: {{ tag.color }}">{{ tag.name }}</div>
+                <div class="grid-table-tag">
+                    <span class="tag" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}">{{ tag.name }}</span>
+                </div>
 
                 <div class="grid-table-actions">
                     <a href="{{ path('app_tag_edit', {'id': tag.id}) }}" class="btn-green" title="Modifier">

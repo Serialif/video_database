@@ -1,7 +1,7 @@
 @import "assets/styles/components/grid_table";
 
 .grid-table {
-    grid-template-columns: 3fr 3fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
 
     @include striped(8);
 
@@ -34,7 +34,7 @@
     .grid-table-updated-at {
         justify-content: center;
         display: none;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .grid-table-image {
@@ -52,7 +52,7 @@
 
 @include screen(tablet) {
     .grid-table {
-        grid-template-columns: 3fr 3fr 1fr;
+        grid-template-columns: 3fr 1fr 1fr;
 
         .grid-table-title {
             .description {
@@ -69,7 +69,7 @@
 
 @include screen(desktop) {
     .grid-table {
-        grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
 
         .grid-table-created-at,
         {

@@ -28,8 +28,9 @@ class TagType extends AbstractType
                     'label' => 'Couleur de fond'
                 ]
             )
-            ->add('color',
-                        ColorType::class,
+            ->add(
+                'color',
+                ColorType::class,
                 [
                     'label' => 'Couleur du texte'
                 ]

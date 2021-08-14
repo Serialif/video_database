@@ -30,6 +30,7 @@
                 background-color: $color-youtube;
                 color: $color-white;
                 cursor: default;
+                pointer-events: none;
             }
         }
     }

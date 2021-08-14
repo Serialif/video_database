@@ -15,10 +15,12 @@
 
     .grid-table-actions {
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
 
-        form {
-            width: 100%;
+        a, form {
+            width: 3rem;
+            height: 2.3rem;
 
             button {
                 width: 100%;
