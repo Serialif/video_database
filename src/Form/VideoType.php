@@ -75,12 +75,12 @@ class VideoType extends AbstractType
                     'attr' => [
                         'style' => 'overflow: hidden'
                     ]
-//                    'expanded' => true,
-//                    'by_reference' => false,
-//                    'query_builder' => function (EntityRepository $entityRepository) {
-//                        return $entityRepository->createQueryBuilder('t')
-//                            ->orderBy('t.name', 'ASC');
-//                    },
+                //                    'expanded' => true,
+                //                    'by_reference' => false,
+                //                    'query_builder' => function (EntityRepository $entityRepository) {
+                //                        return $entityRepository->createQueryBuilder('t')
+                //                            ->orderBy('t.name', 'ASC');
+                //                    },
                 ]
             );
     }
