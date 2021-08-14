@@ -295,7 +295,7 @@ class UserCommand extends Command
             $this->writeMessage(
                 $output,
                 'Some directories already exist, they weren\'t be overwritten:',
-                'true',
+                true,
                 'warning'
             );
             foreach ($warningDirectories as $warningDirectory) {

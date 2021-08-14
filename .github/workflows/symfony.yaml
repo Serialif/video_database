@@ -25,7 +25,7 @@ jobs:
         uses: chindit/actions-phpstan@master
         with:
           # Arguments to add to PHPStan
-          arguments: 'src/ tests/ --level=3'
+          arguments: 'src/ tests/ --level=5'
 
       # PHPCS
       - name: PHP Code Style (phpcs)
