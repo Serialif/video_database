@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Tag;
 use App\Entity\Video;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -61,28 +64,25 @@ class VideoType extends AbstractType
                     ]
                 ]
             )
-//            ->add(
-//                'image',
-//                TextType::class,
-//                [
-//                    'label' => 'Image'
-//                ]
-//            )
-//            ->add('createdAt',
-//                  DateType::class,
-//                  [
-//                      'label' => 'Date de création',
-//                      'widget' => 'single_text'
-//                  ]
-//            )
-//            ->add('updatedAt',
-//                  DateType::class,
-//                  [
-//                      'label' => 'Date de modification',
-//                      'widget' => 'single_text'
-//                  ]
-//            )
-        ;
+            ->add(
+                'tags',
+                EntityType::class,
+                [
+                    'label' => 'Mots clés',
+                    'class' => Tag::class,
+                    'choice_label' => 'name',
+                    'multiple' => true,
+                    'attr' => [
+                        'style' => 'overflow: hidden'
+                    ]
+//                    'expanded' => true,
+//                    'by_reference' => false,
+//                    'query_builder' => function (EntityRepository $entityRepository) {
+//                        return $entityRepository->createQueryBuilder('t')
+//                            ->orderBy('t.name', 'ASC');
+//                    },
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

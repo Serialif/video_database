@@ -21,7 +21,7 @@
                 padding: .75rem 0;
             }
 
-            input, textarea {
+            input, textarea, select {
                 width: 100% !important;
                 margin: auto;
                 padding: 1rem;
@@ -78,7 +78,7 @@
     margin: 1rem auto;
     width: 98%;
 
-    @include striped(7);
+    @include striped(8);
 
     > div {
         display: flex;
@@ -112,6 +112,7 @@
 
     .grid-table-description,
     .grid-table-url,
+    .grid-table-tags,
     .grid-table-created-at,
     .grid-table-updated-at {
         justify-content: center;
@@ -176,8 +177,25 @@
         padding: 2rem;
 
         .grid-table-created-at,
-        .grid-table-updated-at {
+        {
             display: flex;
+        }
+
+        .grid-table-tags {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            align-content: flex-start;
+
+            .tag {
+                font-size: .8rem;
+                display: inline-block;
+                padding: 2px 5px;
+                border-radius: $border-radius;
+                margin: 2px;
+            }
         }
     }
 }

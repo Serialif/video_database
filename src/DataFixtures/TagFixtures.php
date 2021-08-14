@@ -12,12 +12,14 @@ class TagFixtures extends AbstractFixtures
 {
     public function loadData(ObjectManager $manager)
     {
-        for ($i = 0; $i < 10; $i++) {
+        $tags = FixturesConfig::getTags();
+
+        for ($i = 0; $i < 5; $i++) {
             $tag = new Tag();
 
-            $tag->setName($this->faker->word());
-            $tag->setBgcolor($this->faker->hexColor());
-            $tag->setColor($this->faker->hexColor());
+            $tag->setName($tags[$i]['name']);
+            $tag->setBgcolor($tags[$i]['bgcolor']);
+            $tag->setColor($tags[$i]['color']);
 
             $manager->persist($tag);
         }
