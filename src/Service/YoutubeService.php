@@ -32,7 +32,7 @@ class YoutubeService
      * @param string $url
      * @return string
      */
-    public function getImageURL(string $url): string
+    public function getImageUrl(string $url): string
     {
         $videoId = $this->getVideoID($url);
 
