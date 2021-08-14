@@ -1,0 +1,77 @@
+@import "assets/styles/utils/variables";
+
+.form-container {
+    padding: 1rem .25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        width: 95%;
+        max-width: 500px;
+        text-align: center;
+        margin: auto;
+        border: $border;
+        padding: 1rem;
+        background-color: $color-light;
+        border-radius: $border-radius;
+
+        > div {
+            > div {
+                display: flex;
+                flex-direction: column;
+                padding: .75rem 0;
+            }
+
+            input, textarea, select {
+                width: 100% !important;
+                margin: auto;
+                padding: 1rem;
+                border-radius: $border-radius;
+                border: $border;
+                outline: none;
+                background: $color-white;
+
+                &:focus {
+                    border: $border-focus;
+                    outline: none;
+                }
+            }
+
+            input[type=color]{
+                padding: .5rem;
+                height: 50px;
+            }
+
+            textarea {
+                resize: none;
+                overflow: hidden;
+            }
+
+            label {
+                text-align: left;
+                margin-bottom: .25rem;
+                font-weight: 600;
+            }
+
+            ul {
+                li {
+                    background: $color-light-red;
+                    color: $color-white;
+                    border-radius: $border-radius;
+                    margin: .25rem 0;
+                    padding: .5rem;
+                }
+            }
+        }
+
+
+        .form-btn {
+            margin: 1rem 0 0 0;
+        }
+    }
+
+    .back {
+        margin-top: 1rem;
+    }
+}

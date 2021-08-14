@@ -2,8 +2,13 @@
 
 {% block title %}Liste des vidéos{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin_video_index') }}
+{% endblock %}
+
 {% block body %}
-    <div class="container admin-videos-container">
+    <div class="container form-container">
         <h1>Liste des vidéos ({{ videos|length }})</h1>
 
         <div class="grid-table">
