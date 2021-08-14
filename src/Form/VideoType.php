@@ -68,7 +68,7 @@ class VideoType extends AbstractType
                 'tags',
                 EntityType::class,
                 [
-                    'label' => 'Mots clés',
+                    'label' => 'Mots cléss',
                     'class' => Tag::class,
                     'choice_label' => 'name',
                     'multiple' => true,

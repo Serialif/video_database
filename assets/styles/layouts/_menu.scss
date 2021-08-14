@@ -1,17 +1,16 @@
 .menu {
     align-items: center;
     background-color: $color-dark;
-    border-bottom: 2px solid $color-youtube;
+    border-bottom: 1px solid $color-white;
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
-    min-height: 4rem;
+    //margin-bottom: 1rem;
+    min-height: 3rem;
     width: 100%;
 
     li {
         height: 100%;
-        width: 34%;
-        max-width: 34%;
+        width: 50%;
 
         .menu-item {
             align-items: center;
@@ -23,8 +22,25 @@
             width: 100%;
 
             &:hover {
+                background-color: lighten($color-dark, 10);
+                //color: $color-youtube;
+            }
+
+            &.selected {
                 background-color: $color-youtube;
+                color: $color-white;
+                cursor: default;
+                pointer-events: none;
             }
         }
+    }
+}
+
+.admin-menu {
+    min-height: 2rem;
+
+    li {
+        width: 50%;
+        //max-width: 50%;
     }
 }

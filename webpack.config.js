@@ -22,6 +22,9 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('textarea', './assets/scripts/textarea.js')
+    .addEntry('form', './assets/scripts/form.js')
+    .addEntry('admin_video_index', './assets/scripts/admin_video_index.js')
+    .addEntry('admin_tag_index', './assets/scripts/admin_tag_index.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

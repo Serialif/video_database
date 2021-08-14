@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des mots clé{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin_tag_index') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Liste des mots clé ({{ tags|length }})</h1>
+
+        <div class="grid-table">
+            <div class="grid-table-header grid-table-tag">Mot clé</div>
+            <div class="grid-table-header grid-table-actions">
+                <a href="{{ path('app_tag_new') }}" class="btn-blue grid-table-actions--header"
+                   title="Ajouter un mot clé">
+                    <img src="{{ asset('build/images/icons/add.png') }}" alt="Ajouter">
+                </a>
+            </div>
+            {% for tag in tags %}
+                <div class="grid-table-tag">
+                    <span class="tag" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}">{{ tag.name }}</span>
+                </div>
+
+                <div class="grid-table-actions">
+                    <a href="{{ path('app_tag_edit', {'id': tag.id}) }}" class="btn-green" title="Modifier">
+                        <img src="{{ asset('build/images/icons/edit.png') }}" alt="Modifier">
+                    </a>
+                    <form method="post" action="{{ path('app_tag_delete', {'id': tag.id}) }}"
+                          onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce mot clé?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tag.id) }}">
+                        <button class="btn-red" title="Supprimer">
+                            <img src="{{ asset('build/images/icons/delete.png') }}" alt="Supprimer">
+                        </button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="grid-table-tag">Aucun mot clé trouvé</div>
+                <div class="grid-table-actions"></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

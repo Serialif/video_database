@@ -1,0 +1,1 @@
+import '/assets/styles/pages/_admin_tag_index.scss';

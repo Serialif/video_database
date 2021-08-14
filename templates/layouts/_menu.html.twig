@@ -1,11 +1,57 @@
 <ul class="menu">
-    <li><a href="{{ path('app_home') }}" class="menu-item">Accueil</a></li>
-    <li><a href="{{ path('app_video_index') }}" class="menu-item">Administration</a></li>
+    <li>
+        <a href="{{ path('app_home') }}"
+           class="menu-item{{ app.request.attributes.get('_route') == "app_home" ? " selected" : null }}">
+            Accueil</a>
+    </li>
+    {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('app_video_index') }}"
+               class="menu-item{{
+               app.request.attributes.get('_route') == "app_video_index" or
+               app.request.attributes.get('_route') == "app_video_edit" or
+               app.request.attributes.get('_route') == "app_video_new" or
+               app.request.attributes.get('_route') == "app_tag_index" or
+               app.request.attributes.get('_route') == "app_tag_edit" or
+               app.request.attributes.get('_route') == "app_tag_new"
+               ? " selected" : null }}">
+                Administration</a>
+        </li>
+    {% endif %}
     <li>
         {% if app.user is null %}
-            <a href="{{ path('app_login') }}" class="menu-item">Se connecter</a>
+            <a href="{{ path('app_login') }}"
+               class="menu-item{{ app.request.attributes.get('_route') == "app_login" ? " selected" : null }}">
+                Se connecter</a>
         {% else %}
-            <a href="{{ path('app_logout') }}" class="menu-item">Se déconnecter</a>
+            <a href="{{ path('app_logout') }}"
+               class="menu-item{{ app.request.attributes.get('_route') == "app_logout" ? " selected" : null }}">
+                Se déconnecter</a>
         {% endif %}
     </li>
 </ul>
+{% if is_granted('ROLE_ADMIN') and
+    app.request.attributes.get('_route') != "app_home" and
+    app.request.attributes.get('_route') != "app_login"
+%}
+    <ul class="menu admin-menu">
+        <li>
+            <a href="{{ path('app_video_index') }}"
+               class="menu-item{{
+               app.request.attributes.get('_route') == "app_video_index" or
+               app.request.attributes.get('_route') == "app_video_edit" or
+               app.request.attributes.get('_route') == "app_video_new"
+               ? " selected" : null }}">
+                Vidéos</a>
+        </li>
+        <li>
+            <a href="{{ path('app_tag_index') }}"
+               class="menu-item{{
+               app.request.attributes.get('_route') == "app_tag_index" or
+               app.request.attributes.get('_route') == "app_tag_edit" or
+               app.request.attributes.get('_route') == "app_tag_new"
+               ? " selected" : null }}">
+                Mots clés</a>
+        </li>
+    </ul>
+{% endif %}

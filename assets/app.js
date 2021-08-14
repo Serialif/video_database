@@ -9,6 +9,15 @@
 import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
 
 import './scripts/alerts'
+
+window.onload = () => {
+    const $menuItems = document.querySelectorAll(".menu:not(.admin-menu) > li")
+
+    for (const $menuItem of $menuItems) {
+        const width = Math.ceil(100 / $menuItems.length)
+        $menuItem.style.width = width + '%'
+    }
+}

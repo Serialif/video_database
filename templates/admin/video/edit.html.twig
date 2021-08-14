@@ -2,6 +2,11 @@
 
 {% block title %}Modifier une vidéo{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('form') }}
+{% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('textarea') }}
@@ -15,7 +20,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container admin-videos-container">
+    <div class="container form-container">
         <h1>Modifier une vidéo</h1>
 
         {{ include('admin/video/_form.html.twig', {'button_label': 'Modifier'}) }}
