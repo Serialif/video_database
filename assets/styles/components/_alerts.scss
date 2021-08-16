@@ -32,6 +32,16 @@
         }
     }
 
+    &.alert-warning {
+        background-color: lighten($color-orange, 10);
+        //border: 1px solid $color-orange;
+        color:  darken($color-orange, 30);
+
+        &:after {
+            color:  darken($color-orange, 30);
+        }
+    }
+
     &.alert-danger {
         background-color: lighten($color-red, 50);
         //border: 1px solid $color-red;
