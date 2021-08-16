@@ -30,6 +30,12 @@ class UserFixtures extends Fixture
                 'pseudo' => 'user',
                 'password' => 'user',
                 'roles' => ['ROLE_USER']
+            ],
+            [
+                'email' => 'demo@demo.fr',
+                'pseudo' => 'demo',
+                'password' => 'demo',
+                'roles' => ['ROLE_DEMO']
             ]
         ];
 

@@ -4,11 +4,10 @@
            class="menu-item{{ app.request.attributes.get('_route') == "app_home" ? " selected" : null }}">
             Accueil</a>
     </li>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_DEMO') %}
         <li>
             <a href="{{ path('app_video_index') }}"
-               class="menu-item{{
-               app.request.attributes.get('_route') == "app_video_index" or
+               class="menu-item{{ app.request.attributes.get('_route') == "app_video_index" or
                app.request.attributes.get('_route') == "app_video_edit" or
                app.request.attributes.get('_route') == "app_video_new" or
                app.request.attributes.get('_route') == "app_tag_index" or
@@ -30,15 +29,13 @@
         {% endif %}
     </li>
 </ul>
-{% if is_granted('ROLE_ADMIN') and
+{% if  (is_granted('ROLE_ADMIN') or is_granted('ROLE_DEMO')) and
     app.request.attributes.get('_route') != "app_home" and
-    app.request.attributes.get('_route') != "app_login"
-%}
+    app.request.attributes.get('_route') != "app_login" %}
     <ul class="menu admin-menu">
         <li>
             <a href="{{ path('app_video_index') }}"
-               class="menu-item{{
-               app.request.attributes.get('_route') == "app_video_index" or
+               class="menu-item{{ app.request.attributes.get('_route') == "app_video_index" or
                app.request.attributes.get('_route') == "app_video_edit" or
                app.request.attributes.get('_route') == "app_video_new"
                ? " selected" : null }}">
@@ -46,8 +43,7 @@
         </li>
         <li>
             <a href="{{ path('app_tag_index') }}"
-               class="menu-item{{
-               app.request.attributes.get('_route') == "app_tag_index" or
+               class="menu-item{{ app.request.attributes.get('_route') == "app_tag_index" or
                app.request.attributes.get('_route') == "app_tag_edit" or
                app.request.attributes.get('_route') == "app_tag_new"
                ? " selected" : null }}">

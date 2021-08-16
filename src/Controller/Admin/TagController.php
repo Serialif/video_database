@@ -20,9 +20,12 @@ class TagController extends AbstractController
      */
     public function index(TagRepository $tagRepository): Response
     {
-        return $this->render('admin/tag/index.html.twig', [
-            'tags' => $tagRepository->findAll(),
-        ]);
+        return $this->render(
+            'admin/tag/index.html.twig',
+            [
+                'tags' => $tagRepository->findAll(),
+            ]
+        );
     }
 
     /**
@@ -35,27 +38,25 @@ class TagController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($tag);
-            $entityManager->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($tag);
+                $entityManager->flush();
 
+                $this->addFlash('success', 'Le mot clé a bien été ajouté.');
+            } else {
+                $this->addFlash('warning', 'Le mot clé n\'a pas été ajouté. Vous êtes en mode DÉMONSTRATION');
+            }
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/tag/new.html.twig', [
-            'tag' => $tag,
-            'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Tag $tag): Response
-    {
-        return $this->render('admin/tag/show.html.twig', [
-            'tag' => $tag,
-        ]);
+        return $this->renderForm(
+            'admin/tag/new.html.twig',
+            [
+                'tag' => $tag,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
@@ -67,15 +68,24 @@ class TagController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $this->getDoctrine()->getManager()->flush();
+
+                $this->addFlash('success', 'Le mot clé a bien été modifié.');
+            } else {
+                $this->addFlash('warning', 'Le mot clé n\'a pas été modifié. Vous êtes en mode DÉMONSTRATION');
+            }
 
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/tag/edit.html.twig', [
-            'tag' => $tag,
-            'form' => $form,
-        ]);
+        return $this->renderForm(
+            'admin/tag/edit.html.twig',
+            [
+                'tag' => $tag,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
@@ -84,9 +94,15 @@ class TagController extends AbstractController
     public function delete(Request $request, Tag $tag): Response
     {
         if ($this->isCsrfTokenValid('delete' . $tag->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($tag);
-            $entityManager->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($tag);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Le mot clé a bien été supprimé.');
+            } else {
+                $this->addFlash('warning', 'Le mot clé n\'a pas été supprimé. Vous êtes en mode DÉMONSTRATION');
+            }
         }
 
         return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
