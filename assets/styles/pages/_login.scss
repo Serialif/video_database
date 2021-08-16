@@ -21,4 +21,16 @@
             outline: none;
         }
     }
+
+    .demo {
+        text-align: center;
+        padding-top: 2rem;
+        width: 500px;
+        margin: auto;
+        color: $color-dark-gray;
+
+        .credential {
+            color: $color-dark;
+        }
+    }
 }
