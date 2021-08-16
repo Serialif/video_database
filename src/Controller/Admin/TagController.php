@@ -20,9 +20,12 @@ class TagController extends AbstractController
      */
     public function index(TagRepository $tagRepository): Response
     {
-        return $this->render('admin/tag/index.html.twig', [
-            'tags' => $tagRepository->findAll(),
-        ]);
+        return $this->render(
+            'admin/tag/index.html.twig',
+            [
+                'tags' => $tagRepository->findAll(),
+            ]
+        );
     }
 
     /**
@@ -39,23 +42,17 @@ class TagController extends AbstractController
             $entityManager->persist($tag);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Le mot clé a bien été ajouté.');
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/tag/new.html.twig', [
-            'tag' => $tag,
-            'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Tag $tag): Response
-    {
-        return $this->render('admin/tag/show.html.twig', [
-            'tag' => $tag,
-        ]);
+        return $this->renderForm(
+            'admin/tag/new.html.twig',
+            [
+                'tag' => $tag,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
@@ -69,13 +66,17 @@ class TagController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le mot clé a bien été modifié.');
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/tag/edit.html.twig', [
-            'tag' => $tag,
-            'form' => $form,
-        ]);
+        return $this->renderForm(
+            'admin/tag/edit.html.twig',
+            [
+                'tag' => $tag,
+                'form' => $form,
+            ]
+        );
     }
 
     /**
@@ -89,6 +90,7 @@ class TagController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('success', 'Le mot clé a bien été supprimé.');
         return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
     }
 }
