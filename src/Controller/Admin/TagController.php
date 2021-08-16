@@ -45,7 +45,7 @@ class TagController extends AbstractController
 
                 $this->addFlash('success', 'Le mot clé a bien été ajouté.');
             } else {
-                $this->addFlash('warning', 'Le mot clé n\'a pas été ajouté. Vous êtes en mode Démonstration');
+                $this->addFlash('warning', 'Le mot clé n\'a pas été ajouté. Vous êtes en mode DÉMONSTRATION');
             }
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -73,7 +73,7 @@ class TagController extends AbstractController
 
                 $this->addFlash('success', 'Le mot clé a bien été modifié.');
             } else {
-                $this->addFlash('warning', 'Le mot clé n\'a pas été modifié. Vous êtes en mode Démonstration');
+                $this->addFlash('warning', 'Le mot clé n\'a pas été modifié. Vous êtes en mode DÉMONSTRATION');
             }
 
             return $this->redirectToRoute('app_tag_index', [], Response::HTTP_SEE_OTHER);
@@ -101,7 +101,7 @@ class TagController extends AbstractController
 
                 $this->addFlash('success', 'Le mot clé a bien été supprimé.');
             } else {
-                $this->addFlash('warning', 'Le mot clé n\'a pas été supprimé. Vous êtes en mode Démonstration');
+                $this->addFlash('warning', 'Le mot clé n\'a pas été supprimé. Vous êtes en mode DÉMONSTRATION');
             }
         }
 

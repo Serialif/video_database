@@ -39,12 +39,15 @@ class VideoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($video);
-            $entityManager->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($video);
+                $entityManager->flush();
 
-            $this->addFlash('success', 'La vidéo a bien été ajoutée.');
-
+                $this->addFlash('success', 'La vidéo a bien été ajoutée.');
+            } else {
+                $this->addFlash('warning', 'La vidéo n\'a pas été ajoutée. Vous êtes en mode DEMONSTRATION');
+            }
             return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -66,10 +69,13 @@ class VideoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'La vidéo a bien été modifiée.');
-
+                $this->addFlash('success', 'La vidéo a bien été modifiée.');
+            } else {
+                $this->addFlash('warning', 'La vidéo n\'a pas été modifiée. Vous êtes en mode DEMONSTRATION');
+            }
             return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -88,12 +94,16 @@ class VideoController extends AbstractController
     public function delete(Request $request, Video $video): Response
     {
         if ($this->isCsrfTokenValid('delete' . $video->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($video);
-            $entityManager->flush();
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($video);
+                $entityManager->flush();
+                $this->addFlash('success', 'La vidéo a bien été supprimée.');
+            } else {
+                $this->addFlash('warning', 'La vidéo n\'a pas été supprimée. Vous êtes en mode DEMONSTRATION');
+            }
         }
 
-        $this->addFlash('success', 'La vidéo a bien été supprimée.');
 
         return $this->redirectToRoute('app_video_index', [], Response::HTTP_SEE_OTHER);
     }
