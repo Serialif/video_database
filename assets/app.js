@@ -13,11 +13,11 @@ import './styles/app.scss';
 
 import './scripts/alerts'
 
-window.onload = () => {
+// window.onload = () => {
     const $menuItems = document.querySelectorAll(".menu:not(.admin-menu) > li")
 
     for (const $menuItem of $menuItems) {
         const width = Math.ceil(100 / $menuItems.length)
         $menuItem.style.width = width + '%'
     }
-}
+// }

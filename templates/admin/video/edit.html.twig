@@ -10,13 +10,7 @@
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('textarea') }}
-    <script>
-        window.onload = () => {
-            const select = document.querySelector('#video_tags')
-            console.log(select)
-            select.size = select.length
-        }
-    </script>
+    {{ encore_entry_script_tags('select') }}
 {% endblock %}
 
 {% block body %}
